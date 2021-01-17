@@ -1,12 +1,12 @@
 const heroes = document.getElementById('hero')
-const botonFav = document.getElementById('botonFav')
+const buttonFav = document.getElementById('buttonFav')
 
 var id = localStorage.getItem('id')
-var heroesFavoritos = [] 
+var heroesFavorites = [] 
 var array = localStorage.getItem( 'heroesFavoritos' ) 
-var agregado = 1
+var add = false
 
-heroesFavoritos = JSON.parse(array) || []
+heroesFavorites = JSON.parse(array) || []
 
 document.addEventListener('DOMContentLoaded', e => {
     fetchCaracteristicas()
@@ -50,36 +50,39 @@ const res = result => {
 }
 
 const enfav = () => {
-    for( var i = 0; i < heroesFavoritos.length; i++ ){
-        if( heroesFavoritos[i].id === +id ){
-            agregado = 2
-            botonFav.classList.add('botonFavoritosAgregado')
-            botonFav.classList.remove('botonFavoritos')
+    for( var i = 0; i < heroesFavorites.length; i++ ){
+        if( heroesFavorites[i].id === +id ){
+            add = true
+            buttonFav.classList.add('buttonFavoritesAdd')
+            buttonFav.classList.remove('buttonFavorites')
             return
         }
-            botonFav.classList.remove('botonFavoritosAgregado')
-            botonFav.classList.add('botonFavoritos')
+            add = false
+            buttonFav.classList.remove('buttonFavoritesAdd')
+            buttonFav.classList.add('buttonFavorites')
          
     }
 }
 
 function agregarFav() {
 
-    for( var i = 0; i < heroesFavoritos.length; i++ ){
-        if( heroesFavoritos[i].id === +id ){
-            botonFav.classList.remove('botonFavoritosAgregado')
-            botonFav.classList.add('botonFavoritos')
-            heroesFavoritos.splice( i, i + 1)
-            localStorage.setItem( 'heroesFavoritos', JSON.stringify( heroesFavoritos ) )
+    for( var i = 0; i < heroesFavorites.length; i++ ){
+        if( heroesFavorites[i].id === +id ){
+            buttonFav.classList.remove('buttonFavoritesAdd')
+            buttonFav.classList.add('buttonFavorites')
+            add = false
+            heroesFavorites.splice( i, i + 1)
+            localStorage.setItem( 'heroesFavoritos', JSON.stringify( heroesFavorites ) )
             return
         }
     }
-    botonFav.classList.add('botonFavoritosAgregado')
-    botonFav.classList.remove('botonFavoritos')
-    heroesFavoritos.push({
+    buttonFav.classList.add('buttonFavoritesAdd')
+    buttonFav.classList.remove('buttonFavorites')
+    add = true
+    heroesFavorites.push({
             id: parseInt(id)
     })
-    localStorage.setItem( 'heroesFavoritos', JSON.stringify( heroesFavoritos ) )
+    localStorage.setItem( 'heroesFavoritos', JSON.stringify( heroesFavorites ) )
     return 
 }
 

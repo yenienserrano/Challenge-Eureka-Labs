@@ -21,7 +21,7 @@ body {
   border-top-right-radius: 8px;
 }
 
-.tituloCard{
+.titleCard{
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -29,7 +29,7 @@ body {
   line-height: 21px;
 }
 
-.inputBusqueda{
+.inputSearch{
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
   height: 48px;
@@ -38,15 +38,16 @@ body {
   text-align: center;
   justify-content: center;
   padding-bottom: 10px;
+  color: white !important;
 }
 
-.botonBusqueda{
+.buttonSearch{
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   border-left: none;
 }
 
-.botonPaginacion:hover{
+.buttonPagination:hover{
   background: #FF0006 !important;
   border-radius: 4px;
 }
@@ -89,7 +90,7 @@ body {
   line-height: 28px;
 }
 
-.botonFavoritos{
+.buttonFavorites{
   border: 1px solid #DA9F36;
   border-radius: 8px;
   color: #DA9F36;
@@ -98,7 +99,7 @@ body {
   outline: none;
 }
 
-.botonFavoritosAgregado{
+.buttonFavoritesAdd{
   border: 1px solid #DA9F36;
   border-radius: 8px;
   color: #fff;
@@ -107,12 +108,12 @@ body {
   outline: none;
 }
 
-.botonFavoritos:hover{
+.buttonFavorites:hover{
   color: #fff; 
   background: #DA9F36;
 }
 
-.botonFavoritosAgregado:hover{
+.buttonFavoritesAdd:hover{
   color: #DA9F36; 
   background: #fff;
 }

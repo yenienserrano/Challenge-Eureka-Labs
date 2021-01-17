@@ -41,18 +41,28 @@
     <div class="container" id="listHero">
         <div class="d-flex justify-content-between mt-5 mb-3">
             <h3><b>Marvel Heroes</b></h3>
-            <form name="busq" class="form-inline my-2 my-lg-0">
-                <label for="nombre"></label>
+            <form name="searchSH" class="form-inline my-2 my-lg-0">
+                <label for="nameSH"></label>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-transparent inputBusqueda" placeholder="Busca un personaje" id="textoForm" name="nombre">
+                    <input 
+                        type="text" 
+                        class="form-control bg-transparent inputSearch" 
+                        placeholder="Busca un personaje"  
+                        name="nameSH">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary botonBusqueda" type="submit" name="submit" onclick="buscador(event, document.busq.nombre)"><i class="fas fa-search"></i></button>
+                        <button 
+                            class="btn btn-outline-secondary buttonSearch" 
+                            type="submit" 
+                            name="submit" 
+                            onclick="search(event, document.searchSH.nameSH)">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                 </div>
             </form>
         </div>
         <div>
-            <div class="row" id="listaHeroes">
+            <div class="row" id="listHeroes">
                 
                 <!-- listado de heroes -->
                 
@@ -60,7 +70,7 @@
         </div>
     </div>
     
-    <div class="d-flex justify-content-end mb-5 mt-3" id="paginacion">
+    <div class="d-flex justify-content-end mb-5 mt-3" id="pagination">
         
         <!-- paginacion -->
 
