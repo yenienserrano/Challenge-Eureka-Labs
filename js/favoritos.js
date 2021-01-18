@@ -1,9 +1,9 @@
 const heroes = document.getElementById('heroes')
 
-var id              = ''
-var heroesFavorites = [] 
-var heroesFav = []
-var array           = localStorage.getItem( 'heroesFavoritos' ) 
+let id              = ''
+let heroesFavorites = [] 
+let heroesFav = []
+let array           = localStorage.getItem( 'heroesFavoritos' ) 
 
 heroesFavorites     = JSON.parse(array) || [{}]
 
@@ -38,11 +38,11 @@ const res = resultadoHeroes => {
         console.log( h )
         hero += `
         <div class="col-sm-6 col-lg-3">
-            <div class="cardHero animate__animated animate__fadeIn">
-                <a href="./caracteristicas.html" onclick="superheroeId( ${ h.id } )"><img src="${ h.thumbnail.path }.${ h.thumbnail.extension }" class="imgCard" height="200" alt="${ h.name }"></a>
+            <div class="card-hero animate__animated animate__fadeIn">
+                <a href="./caracteristicas.html" onclick="superheroeId( ${ h.id } )"><img src="${ h.thumbnail.path }.${ h.thumbnail.extension }" class="img-card" height="200" alt="${ h.name }"></a>
                 <div class="card-body">
-                    <h5 class="titleCard"><a href="./caracteristicas.html" class="text-white" onclick="superheroeId( ${ h.id } )">${ h.name }</a></h5>
-                    <a href="./html/caracteristicas.html" class="pCard" onclick="superheroeId( ${ h.id } )">VER DETALLE</a>
+                    <h5 class="title-card"><a href="./caracteristicas.html" class="text-white" onclick="superheroeId( ${ h.id } )">${ h.name }</a></h5>
+                    <a href="./html/caracteristicas.html" class="p-card" onclick="superheroeId( ${ h.id } )">VER DETALLE</a>
                 </div>
             </div>
         </div>
@@ -51,6 +51,6 @@ const res = resultadoHeroes => {
     heroes.innerHTML = hero
 }
 
-async function superheroeId( id ){
+const superheroeId = async id => {
     localStorage.setItem('id', id)
 }

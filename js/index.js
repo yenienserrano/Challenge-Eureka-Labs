@@ -1,9 +1,9 @@
 const heroes = document.getElementById('listHeroes')
 const pagination = document.getElementById('pagination')
 
-var page = 0
-var nameSearch = ''
-var superheroId   = ''
+let page = 0
+let nameSearch = ''
+let superheroId   = ''
 
 document.addEventListener('DOMContentLoaded', e => {
     fetchHome()
@@ -52,11 +52,11 @@ const res = results => {
     results.forEach( h => {
         hero += `
         <div class="col-sm-6 col-lg-3">
-            <div class="cardHero animate__animated animate__fadeIn">
-                <a href="./html/caracteristicas.html" onclick="superheroeId( ${ h.id } )"><img src="${ h.thumbnail.path }.${ h.thumbnail.extension }" class="imgCard" height="200" alt="${ h.name }"></a>
+            <div class="card-hero animate__animated animate__fadeIn">
+                <a href="./html/caracteristicas.html" onclick="superheroeId( ${ h.id } )"><img src="${ h.thumbnail.path }.${ h.thumbnail.extension }" class="img-card" height="200" alt="${ h.name }"></a>
                 <div class="card-body">
-                    <h5 class="titleCard"><a href="./html/caracteristicas.html" class="text-white" onclick="superheroeId( ${ h.id } )">${ h.name }</a></h5>
-                    <a href="./html/caracteristicas.html" class="pCard" onclick="superheroeId( ${ h.id } )">VER DETALLE</a>
+                    <h5 class="title-card"><a href="./html/caracteristicas.html" class="text-white" onclick="superheroeId( ${ h.id } )">${ h.name }</a></h5>
+                    <a href="./html/caracteristicas.html" class="p-card" onclick="superheroeId( ${ h.id } )">VER DETALLE</a>
                 </div>
             </div>
         </div>
@@ -69,18 +69,18 @@ const pag = () => {
     let pag = `${ ( page < 8)
         ? 
         `
-        <button onclick="nextPage( 0 )" class="btn btn-link text-white buttonPagination">${ ( (page / 8 ) < 0 ) ? 1 : ((page / 8) + 1)  }</button>
-        <button onclick="nextPage( 8 )" class="btn btn-link text-white buttonPagination">${ ((page / 8) + 2) }</button>
-        <button onclick="nextPage( 16 )" class="btn btn-link text-white buttonPagination">${ ((page / 8) + 3) }</button>
-        <button onclick="nextPage( 8 )" class="btn btn-link text-white buttonPagination"><i class="fas fa-chevron-right"></i></button>
+        <button onclick="nextPage( 0 )" class="btn btn-link text-white button-pagination">${ ( (page / 8 ) < 0 ) ? 1 : ((page / 8) + 1)  }</button>
+        <button onclick="nextPage( 8 )" class="btn btn-link text-white button-pagination">${ ((page / 8) + 2) }</button>
+        <button onclick="nextPage( 16 )" class="btn btn-link text-white button-pagination">${ ((page / 8) + 3) }</button>
+        <button onclick="nextPage( 8 )" class="btn btn-link text-white button-pagination"><i class="fas fa-chevron-right"></i></button>
         ` 
         :
         `
-        <button onclick="nextPage( -8 )" class="btn btn-link text-white buttonPagination"><i class="fas fa-chevron-left"></i></button>
-        <button onclick="nextPage( 0 )" class="btn btn-link text-white buttonPagination">${ ( (page / 8 ) < 0 ) ? 1 : ((page / 8) + 1)  }</button>
-        <button onclick="nextPage( 8 )" class="btn btn-link text-white buttonPagination">${ ((page / 8) + 2) }</button>
-        <button onclick="nextPage( 16 )" class="btn btn-link text-white buttonPagination">${ ((page / 8) + 3) }</button>
-        <button onclick="nextPage( 8 )" class="btn btn-link text-white buttonPagination"><i class="fas fa-chevron-right"></i></button>
+        <button onclick="nextPage( -8 )" class="btn btn-link text-white button-pagination"><i class="fas fa-chevron-left"></i></button>
+        <button onclick="nextPage( 0 )" class="btn btn-link text-white button-pagination">${ ( (page / 8 ) < 0 ) ? 1 : ((page / 8) + 1)  }</button>
+        <button onclick="nextPage( 8 )" class="btn btn-link text-white button-pagination">${ ((page / 8) + 2) }</button>
+        <button onclick="nextPage( 16 )" class="btn btn-link text-white button-pagination">${ ((page / 8) + 3) }</button>
+        <button onclick="nextPage( 8 )" class="btn btn-link text-white button-pagination"><i class="fas fa-chevron-right"></i></button>
         `
     } 
     `
@@ -88,7 +88,7 @@ const pag = () => {
 }
 
 
-async function nextPage( valor ){
+const nextPage = async valor => {
     if( page < 7 && valor < 0 ){
         page = 0
         return await fetchData() 
@@ -97,12 +97,12 @@ async function nextPage( valor ){
     return await fetchData() 
 }
 
-async function search(event, inputText){
+const search = async (event, inputText) => {
     event.preventDefault()
     nameSearch = inputText.value
     fetchHome()
 }
 
-async function superheroeId( id ){
+const superheroeId = async id => {
     localStorage.setItem('id', id)
 }

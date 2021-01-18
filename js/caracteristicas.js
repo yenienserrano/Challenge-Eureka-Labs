@@ -1,10 +1,10 @@
 const heroes = document.getElementById('hero')
 const buttonFav = document.getElementById('buttonFav')
 
-var id = localStorage.getItem('id')
-var heroesFavorites = [] 
-var array = localStorage.getItem( 'heroesFavoritos' ) 
-var add = false
+let id = localStorage.getItem('id')
+let heroesFavorites = [] 
+let array = localStorage.getItem( 'heroesFavoritos' ) 
+let add = false
 
 heroesFavorites = JSON.parse(array) || []
 
@@ -33,7 +33,7 @@ const res = result => {
     result.forEach( h => {
         hero += `
         <div class="col-md-5">
-            <img  src="${ h.thumbnail.path }.${ h.thumbnail.extension }" class="cardImgDetalle animate__animated animate__fadeInLeft" alt=${ h.name } />
+            <img  src="${ h.thumbnail.path }.${ h.thumbnail.extension }" class="card-img-detalle animate__animated animate__fadeInLeft" alt=${ h.name } />
         </div>
         <div class="col-md-7">
             <div class="card-body animate__animated animate__fadeIn">
@@ -53,31 +53,31 @@ const enfav = () => {
     for( var i = 0; i < heroesFavorites.length; i++ ){
         if( heroesFavorites[i].id === +id ){
             add = true
-            buttonFav.classList.add('buttonFavoritesAdd')
-            buttonFav.classList.remove('buttonFavorites')
+            buttonFav.classList.add('button-favorites-add')
+            buttonFav.classList.remove('button-favorites')
             return
         }
             add = false
-            buttonFav.classList.remove('buttonFavoritesAdd')
-            buttonFav.classList.add('buttonFavorites')
+            buttonFav.classList.remove('button-favorites-add')
+            buttonFav.classList.add('button-favorites')
          
     }
 }
 
-function agregarFav() {
+const agregarFav = () => {
 
     for( var i = 0; i < heroesFavorites.length; i++ ){
         if( heroesFavorites[i].id === +id ){
-            buttonFav.classList.remove('buttonFavoritesAdd')
-            buttonFav.classList.add('buttonFavorites')
+            buttonFav.classList.remove('button-favorites-add')
+            buttonFav.classList.add('button-favorites')
             add = false
             heroesFavorites.splice( i, i + 1)
             localStorage.setItem( 'heroesFavoritos', JSON.stringify( heroesFavorites ) )
             return
         }
     }
-    buttonFav.classList.add('buttonFavoritesAdd')
-    buttonFav.classList.remove('buttonFavorites')
+    buttonFav.classList.add('button-favorites-add')
+    buttonFav.classList.remove('button-favorites')
     add = true
     heroesFavorites.push({
             id: parseInt(id)

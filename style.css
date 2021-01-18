@@ -5,7 +5,7 @@ body {
   color: white;
 }
 
-.cardHero {
+.card-hero {
   margin-top: 10px;
   margin-bottom: 10px;
   background: #202020;
@@ -14,14 +14,14 @@ body {
   height: 370px;
 }
 
-.imgCard{
+.img-card{
   height: 266px;
   width: 100%;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
-.titleCard{
+.title-card{
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -29,7 +29,7 @@ body {
   line-height: 21px;
 }
 
-.inputSearch{
+.input-search{
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
   height: 48px;
@@ -41,18 +41,18 @@ body {
   color: white !important;
 }
 
-.buttonSearch{
+.button-search{
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   border-left: none;
 }
 
-.buttonPagination:hover{
+.button-pagination:hover{
   background: #FF0006 !important;
   border-radius: 4px;
 }
 
-.pCard{
+.p-card{
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -67,7 +67,7 @@ body {
 
 /* detalle */
 
-.cardImgDetalle{
+.card-img-detalle{
   height: 400px;
   width: 100%;
   margin-top: 20px;
@@ -90,7 +90,7 @@ body {
   line-height: 28px;
 }
 
-.buttonFavorites{
+.button-favorites{
   border: 1px solid #DA9F36;
   border-radius: 8px;
   color: #DA9F36;
@@ -99,7 +99,7 @@ body {
   outline: none;
 }
 
-.buttonFavoritesAdd{
+.button-favorites-add{
   border: 1px solid #DA9F36;
   border-radius: 8px;
   color: #fff;
@@ -108,12 +108,12 @@ body {
   outline: none;
 }
 
-.buttonFavorites:hover{
+.button-favorites:hover{
   color: #fff; 
   background: #DA9F36;
 }
 
-.buttonFavoritesAdd:hover{
+.button-favorites-add:hover{
   color: #DA9F36; 
   background: #fff;
 }
